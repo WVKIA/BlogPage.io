@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SQL," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="Sql基础教程标签（空格分隔）：Sql —Sql基础教程记录 第一章 数据库和Sql（一）Sql语句及种类 DDL（Data Definition Language）数据定义语言  用来创建或删除存储数据用的数据库以及数据表等对象  Create 创建语句 Drop 删除语句 Alter 修改语句    DML（Data Manipulation Language）数据操作语言  用来查询或变更表">
+<meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL基础">
 <meta property="og:url" content="http://yoursite.com/2018/04/09/SQL基础/index.html">
 <meta property="og:site_name" content="wvkia">
+<meta property="og:description" content="Sql基础教程标签（空格分隔）：Sql —Sql基础教程记录 第一章 数据库和Sql（一）Sql语句及种类 DDL（Data Definition Language）数据定义语言  用来创建或删除存储数据用的数据库以及数据表等对象  Create 创建语句 Drop 删除语句 Alter 修改语句    DML（Data Manipulation Language）数据操作语言  用来查询或变更表">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-09T15:09:42.112Z">
+<meta property="og:updated_time" content="2018-04-09T15:50:05.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL基础">
+<meta name="twitter:description" content="Sql基础教程标签（空格分隔）：Sql —Sql基础教程记录 第一章 数据库和Sql（一）Sql语句及种类 DDL（Data Definition Language）数据定义语言  用来创建或删除存储数据用的数据库以及数据表等对象  Create 创建语句 Drop 删除语句 Alter 修改语句    DML（Data Manipulation Language）数据操作语言  用来查询或变更表">
 
 
 
@@ -94,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -303,7 +307,15 @@
               </span>
             
           
-
+		  
+		  
+			
+			<span>&nbsp; | &nbsp;
+			<span id="busuanzi_value_page_pv" ></span>次阅读
+			</span>    
+			
+			
+			
           
           
 
@@ -320,7 +332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1,079
                 </span>
               
 
@@ -336,7 +348,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -357,7 +369,158 @@
       
 
       
-        
+        <p>Sql基础教程<br>标签（空格分隔）：Sql</p>
+<p>—Sql基础教程记录</p>
+<h4 id="第一章-数据库和Sql"><a href="#第一章-数据库和Sql" class="headerlink" title="第一章 数据库和Sql"></a>第一章 数据库和Sql</h4><h5 id="（一）Sql语句及种类"><a href="#（一）Sql语句及种类" class="headerlink" title="（一）Sql语句及种类"></a>（一）Sql语句及种类</h5><ol>
+<li><p>DDL（Data Definition Language）数据定义语言</p>
+<blockquote>
+<p>用来创建或删除存储数据用的数据库以及数据表等对象</p>
+<ol>
+<li>Create 创建语句</li>
+<li>Drop 删除语句</li>
+<li>Alter 修改语句</li>
+</ol>
+</blockquote>
+</li>
+<li><p>DML（Data Manipulation Language）数据操作语言</p>
+<blockquote>
+<p>用来查询或变更表格记录的语句</p>
+<ol>
+<li>Select 查询数据</li>
+<li>Insert 插入语句</li>
+<li>Update 语句</li>
+<li>Delete 删除语句</li>
+</ol>
+</blockquote>
+</li>
+<li><p>DCL（Data Control Language）数据控制语句</p>
+<blockquote>
+<p>用来确认或者取消变更的语句，或者设定权限</p>
+<ol>
+<li>Commit 确认数据变更</li>
+<li>RollBack 回滚</li>
+<li>Grant 赋权</li>
+<li>Revoke 取消权限</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h5 id="（二）建表"><a href="#（二）建表" class="headerlink" title="（二）建表"></a>（二）建表</h5><blockquote>
+<p>Create database &lt;’database’&gt;</p>
+</blockquote>
+<blockquote>
+<p>Create table &lt;’tablename’&gt;(<br>&lt;’column’&gt; 数据类型 约束,</p>
+<p>)</p>
+</blockquote>
+<blockquote>
+<p>Drop table &lt;’tablename’&gt;</p>
+</blockquote>
+<p>表定义的更新</p>
+<blockquote>
+<blockquote>
+<p>alter table tablename add column &lt;’列定义’&gt;<br>alter tbale &lt;’tablename’&gt; drop column &lt;’列名’&gt;</p>
+</blockquote>
+</blockquote>
+<hr>
+<h4 id="第二章-数据查询"><a href="#第二章-数据查询" class="headerlink" title="第二章 数据查询"></a>第二章 数据查询</h4><h5 id="一-Select语句"><a href="#一-Select语句" class="headerlink" title="(一)Select语句"></a>(一)Select语句</h5><ol>
+<li>列查询<blockquote>
+<p>select &lt;’columnname’&gt; ,… from &lt;’tablename’&gt;</p>
+<p>select * from &lt;’tablename’&gt;</p>
+</blockquote>
+</li>
+<li>As 设置别名<blockquote>
+<p>select col <strong>as</strong> name1 from &lt;’tablename’&gt;</p>
+</blockquote>
+</li>
+<li>Distinct 删除重复行<blockquote>
+<p>select distinct &lt;’column’&gt;,… from &lt;’tablename’&gt;<br>Distinct 只能用于第一个列名之前</p>
+</blockquote>
+</li>
+<li>Where 条件表达式<blockquote>
+<p>select columnname from tablename where “条件子句”</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="（二）运算符"><a href="#（二）运算符" class="headerlink" title="（二）运算符"></a>（二）运算符</h5><ol>
+<li><p>算术</p>
+<blockquote>
+<p>+  -  *  /<br>注意 NULL和任何算术运算都是NULL</p>
+</blockquote>
+</li>
+<li><p>比较</p>
+<blockquote>
+<p>>  &lt;  &gt;=  &lt;=  &lt;&gt;  is null</p>
+</blockquote>
+</li>
+<li><p>逻辑</p>
+<blockquote>
+<p>NOT  AND OR</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h4 id="第三章-聚合和排序"><a href="#第三章-聚合和排序" class="headerlink" title="第三章 聚合和排序"></a>第三章 聚合和排序</h4><h5 id="（一）聚合函数"><a href="#（一）聚合函数" class="headerlink" title="（一）聚合函数"></a>（一）聚合函数</h5><blockquote>
+<p>COUNT<br>SUM<br>AVG<br>MAX<br>MIN<br>注意Count(*)会计算加上NULL的行数，但其他函数包括Count(列名)都会得到NULL之外的数据然后计算</p>
+</blockquote>
+<blockquote>
+<p>使用聚合函数也可以使用 DISTINCT进行过滤重复， select count( distinct 列名 )</p>
+</blockquote>
+<blockquote>
+<p>聚合函数使用的要素</p>
+<blockquote>
+<p>常数<br>列名<br>其他聚合函数</p>
+</blockquote>
+</blockquote>
+<h5 id="（二）分组Group"><a href="#（二）分组Group" class="headerlink" title="（二）分组Group"></a>（二）分组Group</h5><pre><code>Select 列名，... from 表名 Group by 列名，...
+</code></pre><blockquote>
+<p>注意Group by子句的含义就是分割，分组，在group by 中指定的列称为 分组列，将数据按照Group by分组之后，在进行计算，NULL也会被作为特定的一组数据。</p>
+<p>因为采用列进行分组，所以每一行数据都是一组</p>
+</blockquote>
+<pre><code>select 列名，... from 表名 where 条件子句 group by 列名...
+</code></pre><blockquote>
+<p>分组和where查询结合<br>注意执行的顺序    From –&gt; Where –&gt; Group by –&gt; select</p>
+</blockquote>
+<h5 id="需要注意的常见错误"><a href="#需要注意的常见错误" class="headerlink" title="需要注意的常见错误"></a>需要注意的常见错误</h5><ol>
+<li><p>在Select子句中书写多余的列</p>
+<blockquote>
+<p>通过某个聚合键将表分组之后，结果中的一行数据就代表一组<br>此时，Select子句中只能存在</p>
+<blockquote>
+<p>常数<br>聚合函数<br>Group By指定的列名，也就是聚合键</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>在Group By语句中使用别名</p>
+<blockquote>
+<p>Group By语句不能使用As别名，因为sql执行顺序是先是From从表，然后根据Where过滤，然后通过Group &gt; By聚合键进行分组，最后通过Select语句进行列的获取，所有As列名在最后</p>
+</blockquote>
+</li>
+<li><p>Group By的结果是不排序的，完全随机的</p>
+</li>
+<li><p>在Where中使用聚合函数</p>
+<blockquote>
+<p>例如 Select id,count(*) from table where count(*) &gt;=2 group by id;<br>但是这样会发生错误，只有Select语句和Having子句以及Order by可以使用聚合函数，如果想对分组之后的数据进行聚合函数的过滤，可以通过Having子句</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="（三）Having子句"><a href="#（三）Having子句" class="headerlink" title="（三）Having子句"></a>（三）Having子句</h4><pre><code>对分组后的结果进行条件，Select 列名，... From table Group By 列名，... Having 分组结果对应的条件
+</code></pre><blockquote>
+<p>Having子句使用的要素</p>
+<blockquote>
+<p>常数<br>聚合函数<br>Group By指定的列，即聚合键</p>
+</blockquote>
+</blockquote>
+<p>Having子句和Where条件<br>Where子句 = 指定行所对应的条件<br>Having子句 = 指定组所对应的条件<br>尽可能的先在Where子句中过滤掉条件：</p>
+<blockquote>
+<ol>
+<li>在使用Count聚合函数等对表的数据进行聚合操作时，DMBMS会先对数据进行排序处理，而数据量大的话排序会增加服务器负担，通过Where子句过滤后，行数会减少，但Having子句是在数据拿到之后即排序之后才对数据进行分组，因此尽可能使用Where过滤</li>
+<li>可以对Where所在列进行加索引，可以很大加快速度</li>
+</ol>
+</blockquote>
+<h4 id="（四）Order-By排序"><a href="#（四）Order-By排序" class="headerlink" title="（四）Order By排序"></a>（四）Order By排序</h4><p>默认升序ASC，DESC降序<br>可以指定多个排序键<br>NULL值会在开头或者结尾进行特殊处理<br>排序键可以使用别名As<br>执行顺序：</p>
+<blockquote>
+<p>From –&gt; Where –&gt; Group by –&gt; Having –&gt; Select –&gt; Order by</p>
+</blockquote>
+
       
     </div>
     
@@ -370,6 +533,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
       
 
       
@@ -447,8 +616,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -475,6 +653,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -511,6 +698,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章-数据库和Sql"><span class="nav-number">1.</span> <span class="nav-text">第一章 数据库和Sql</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（一）Sql语句及种类"><span class="nav-number">1.1.</span> <span class="nav-text">（一）Sql语句及种类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（二）建表"><span class="nav-number">1.2.</span> <span class="nav-text">（二）建表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章-数据查询"><span class="nav-number">2.</span> <span class="nav-text">第二章 数据查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一-Select语句"><span class="nav-number">2.1.</span> <span class="nav-text">(一)Select语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（二）运算符"><span class="nav-number">2.2.</span> <span class="nav-text">（二）运算符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章-聚合和排序"><span class="nav-number">3.</span> <span class="nav-text">第三章 聚合和排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（一）聚合函数"><span class="nav-number">3.1.</span> <span class="nav-text">（一）聚合函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（二）分组Group"><span class="nav-number">3.2.</span> <span class="nav-text">（二）分组Group</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#需要注意的常见错误"><span class="nav-number">3.3.</span> <span class="nav-text">需要注意的常见错误</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（三）Having子句"><span class="nav-number">4.</span> <span class="nav-text">（三）Having子句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（四）Order-By排序"><span class="nav-number">5.</span> <span class="nav-text">（四）Order By排序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -539,7 +742,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">78</span>
+    <span title="Site words total count">1.2k</span>
   
 </div>
 
@@ -549,7 +752,7 @@
 </span>
 </div>
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by"></div>
 
 
 
@@ -557,7 +760,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
