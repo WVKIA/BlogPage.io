@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JVM," />
 
 
 
@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="wvkia">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="Java虚拟机虚拟机是抽象化的计算机，通过在实际计算机上仿真模拟各种计算机功能来实现的。Java虚拟机有自己的硬件架构，如果处理器、堆栈、寄存器等，还有相应的指令系统。JVM屏蔽了和具体操作系统平台的信息，使得Java程序只需生成在JVM上运行的目标代码（字节码），就可以正确运行。 JVM的产生为了屏蔽操作系统的具体信息，使得Java代码可以在不同的操作系统无差别运行。 从进程角度看待：  从这个">
+<meta name="keywords" content="JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM（一）Java虚拟机">
+<meta property="og:url" content="http://yoursite.com/2018/04/26/JVM（一）Java虚拟机/index.html">
 <meta property="og:site_name" content="wvkia">
+<meta property="og:description" content="Java虚拟机虚拟机是抽象化的计算机，通过在实际计算机上仿真模拟各种计算机功能来实现的。Java虚拟机有自己的硬件架构，如果处理器、堆栈、寄存器等，还有相应的指令系统。JVM屏蔽了和具体操作系统平台的信息，使得Java程序只需生成在JVM上运行的目标代码（字节码），就可以正确运行。 JVM的产生为了屏蔽操作系统的具体信息，使得Java代码可以在不同的操作系统无差别运行。 从进程角度看待：  从这个">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/04/26/JVM（一）Java虚拟机/jvmsubsystem.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/26/JVM（一）Java虚拟机/jdk.png">
+<meta property="og:updated_time" content="2018-04-26T15:32:03.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wvkia">
+<meta name="twitter:title" content="JVM（一）Java虚拟机">
+<meta name="twitter:description" content="Java虚拟机虚拟机是抽象化的计算机，通过在实际计算机上仿真模拟各种计算机功能来实现的。Java虚拟机有自己的硬件架构，如果处理器、堆栈、寄存器等，还有相应的指令系统。JVM屏蔽了和具体操作系统平台的信息，使得Java程序只需生成在JVM上运行的目标代码（字节码），就可以正确运行。 JVM的产生为了屏蔽操作系统的具体信息，使得Java代码可以在不同的操作系统无差别运行。 从进程角度看待：  从这个">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/26/JVM（一）Java虚拟机/jvmsubsystem.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/26/JVM（一）Java虚拟机/"/>
 
 
 
 
 
-  <title>wvkia</title>
+  <title>JVM（一）Java虚拟机 | wvkia</title>
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,9 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -249,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/09/SQL基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/JVM（一）Java虚拟机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wvkia">
@@ -266,9 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/09/SQL基础/" itemprop="url">SQL基础</a></h1>
+          <h1 class="post-title" itemprop="name headline">JVM（一）Java虚拟机</h1>
         
 
         <div class="post-meta">
@@ -280,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T23:09:42+08:00">
-                2018-04-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T23:26:17+08:00">
+                2018-04-26
               </time>
             
 
@@ -291,34 +296,26 @@
           </span>
 
           
-            <span class="post-category" >
+
+          
             
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Sql基础/" itemprop="url" rel="index">
-                    <span itemprop="name">Sql基础</span>
-                  </a>
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
                 </span>
-
-                
-                
-              
-            </span>
-          
-
-          
+                <a href="/2018/04/26/JVM（一）Java虚拟机/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/04/26/JVM（一）Java虚拟机/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 		  
 		  
+			
+			<span>&nbsp; | &nbsp;
+			<span id="busuanzi_value_page_pv" ></span>次阅读
+			</span>    
 			
 			
 			
@@ -338,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,060
+                  774
                 </span>
               
 
@@ -354,7 +351,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  3
                 </span>
               
             </div>
@@ -375,29 +372,30 @@
       
 
       
-        
-          
-          第一章 数据库和Sql（一）Sql语句及种类
-DDL（Data Definition Language）数据定义语言
+        <h4 id="Java虚拟机"><a href="#Java虚拟机" class="headerlink" title="Java虚拟机"></a>Java虚拟机</h4><pre><code>虚拟机是抽象化的计算机，通过在实际计算机上仿真模拟各种计算机功能来实现的。Java虚拟机有自己的硬件架构，如果处理器、堆栈、寄存器等，还有相应的指令系统。JVM屏蔽了和具体操作系统平台的信息，使得Java程序只需生成在JVM上运行的目标代码（字节码），就可以正确运行。
+</code></pre><h5 id="JVM的产生"><a href="#JVM的产生" class="headerlink" title="JVM的产生"></a>JVM的产生</h5><p>为了屏蔽操作系统的具体信息，使得Java代码可以在不同的操作系统无差别运行。</p>
+<p>从进程角度看待：</p>
+<ul>
+<li>从这个角度看，JVM只是一个普通的应用进程，当我们Java代码需要运行时，会首先启动JVM这个进程，然后JVM对Class文件进行加载解析，解释class字节码指令，然后把这些字节码指令翻译成本机CPU可以识别的指令，再到CPU上运行。</li>
+<li>同时JVM进行还会会处理一些低层的操作，例如内存的分配和回收。</li>
+<li>一个JVM虚拟机在运行时会有三个子系统来保证它的正常运行<ul>
+<li>类加载器子系统</li>
+<li>执行引擎子系统</li>
+<li>垃圾回收子系统</li>
+</ul>
+</li>
+</ul>
+<p>从具体实例来了解三个系统的作用：</p>
+<ul>
+<li><p>我们编写的Java代码会首先被编译成Class文件，这个是JVM可以识别的标准文件，编译之后的class文件是作为JVM的原料被输入到JVM内部，这个把Class文件加载到JVM内部的工作就由类加载器子系统进行，这个子系统用来在运行时“根据需要”加载类。注意“根据需要”这个关键字。Java虚拟机执行的过程中，只有在它需要某一个类的时候，才会调用类加载器子系统来加载这个类，并不会在开始运行的时候就加载所有的类，就像一个人饿了才会吃饭，不会一次把一年的饭都吃了。通常，虚拟机在第一次使用某个类的时候才会加载这个类对应的class文件，这个后续会说到具体类加载器工作原理。</p>
+</li>
+<li><p>由类加载器子系统加载的类，被加载到Java虚拟机内存之后，虚拟机会读取并且执行它里面的字节码指令。执行字节码指令的部分就是执行引擎子系统。类似人类的消化系统。在执行过程中还会把各个class文件动态链接起来。</p>
+</li>
+<li><p>Java虚拟机会对内存进行自动管理，就是合理的分配内存并且自动释放没有用的对象，不需要程序手动编码。这部分工作就是由垃圾回收子系统完成。<br><img src="/2018/04/26/JVM（一）Java虚拟机/jvmsubsystem.png" alt=""></p>
+</li>
+</ul>
+<h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4><p>JRE:Java Runtime Environment  Java运行时环境<br>    包括Java虚拟机和基础类库，运行Java程序需要的<br>JDK:Java Development Kit Java开发工具包<br>    包括JRE和工具，开发Java程序需要的<br><img src="/2018/04/26/JVM（一）Java虚拟机/jdk.png" alt=""></p>
 
-用来创建或删除存储数据用的数据库以及数据表等对象
-
-Create 创建语句
-Drop 删除语句
-Alter 修改语句
-
-
-
-DML（Data Manipulation Langua
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/09/SQL基础/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -408,17 +406,57 @@ DML（Data Manipulation Langua
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    wvkia
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/04/26/JVM（一）Java虚拟机/" title="JVM（一）Java虚拟机">http://yoursite.com/2018/04/26/JVM（一）Java虚拟机/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/24/JVM（三）内存分配和垃圾回收/" rel="next" title="JVM（三）内存分配和垃圾回收">
+                <i class="fa fa-chevron-left"></i> JVM（三）内存分配和垃圾回收
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -428,14 +466,11 @@ DML（Data Manipulation Langua
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -443,6 +478,17 @@ DML（Data Manipulation Langua
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -463,8 +509,17 @@ DML（Data Manipulation Langua
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -544,6 +599,22 @@ DML（Data Manipulation Langua
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java虚拟机"><span class="nav-number">1.</span> <span class="nav-text">Java虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JVM的产生"><span class="nav-number">1.1.</span> <span class="nav-text">JVM的产生</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK"><span class="nav-number">2.</span> <span class="nav-text">JDK</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -692,6 +763,10 @@ DML（Data Manipulation Langua
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -738,6 +813,30 @@ DML（Data Manipulation Langua
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wvkia',
+            repo: 'wvkia.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'f39edd222b0ab599d56c127cdf97177bcab53117',
+            
+                client_id: '980fbfc3f39836ada543'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 

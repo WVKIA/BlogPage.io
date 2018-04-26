@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="JVM," />
 
 
 
@@ -79,18 +79,25 @@
 
 
 
-<meta name="description" content="Top命令 123456789101112top - 01:06:48 up  1:22,  1 user,  load average: 0.06, 0.60, 0.48Tasks:  29 total,   1 running,  28 sleeping,   0 stopped,   0 zombieCpu(s):  0.3% us,  1.0% sy,  0.0% ni, 98.7% id">
-<meta name="keywords" content="Linux">
+<meta name="description" content="JVM内存结构 线程共享区域 方法区(Method Area)   各个线程共享的内存区域，用来存储已被虚拟机加载的类信息、常量、静态变量、即时编辑器编译后的代码 这块区域的回收主要针对常量池的回收和类型的卸载，（String.intern()会影响常量池） 当方法区无法满足内存分配就会报出OutOfMemeoryError JDK1.7中已经将常量池移出了方法区，移到了堆上 常量池 用来存放编译">
+<meta name="keywords" content="JVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Top命令">
-<meta property="og:url" content="http://yoursite.com/2018/04/13/Linux-Top命令/index.html">
+<meta property="og:title" content="JVM（二）内存管理机制">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/index.html">
 <meta property="og:site_name" content="wvkia">
-<meta property="og:description" content="Top命令 123456789101112top - 01:06:48 up  1:22,  1 user,  load average: 0.06, 0.60, 0.48Tasks:  29 total,   1 running,  28 sleeping,   0 stopped,   0 zombieCpu(s):  0.3% us,  1.0% sy,  0.0% ni, 98.7% id">
+<meta property="og:description" content="JVM内存结构 线程共享区域 方法区(Method Area)   各个线程共享的内存区域，用来存储已被虚拟机加载的类信息、常量、静态变量、即时编辑器编译后的代码 这块区域的回收主要针对常量池的回收和类型的卸载，（String.intern()会影响常量池） 当方法区无法满足内存分配就会报出OutOfMemeoryError JDK1.7中已经将常量池移出了方法区，移到了堆上 常量池 用来存放编译">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-13T12:27:04.209Z">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/jvmmemory.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/directmemory.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/handles.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/pointer.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/jvmmodel.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/jvmconfig.png">
+<meta property="og:updated_time" content="2018-04-26T15:29:10.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Top命令">
-<meta name="twitter:description" content="Top命令 123456789101112top - 01:06:48 up  1:22,  1 user,  load average: 0.06, 0.60, 0.48Tasks:  29 total,   1 running,  28 sleeping,   0 stopped,   0 zombieCpu(s):  0.3% us,  1.0% sy,  0.0% ni, 98.7% id">
+<meta name="twitter:title" content="JVM（二）内存管理机制">
+<meta name="twitter:description" content="JVM内存结构 线程共享区域 方法区(Method Area)   各个线程共享的内存区域，用来存储已被虚拟机加载的类信息、常量、静态变量、即时编辑器编译后的代码 这块区域的回收主要针对常量池的回收和类型的卸载，（String.intern()会影响常量池） 当方法区无法满足内存分配就会报出OutOfMemeoryError JDK1.7中已经将常量池移出了方法区，移到了堆上 常量池 用来存放编译">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/jvmmemory.png">
 
 
 
@@ -120,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/13/Linux-Top命令/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/"/>
 
 
 
 
 
-  <title>Linux Top命令 | wvkia</title>
+  <title>JVM（二）内存管理机制 | wvkia</title>
   
 
 
@@ -253,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/Linux-Top命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wvkia">
@@ -270,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Top命令</h1>
+          <h1 class="post-title" itemprop="name headline">JVM（二）内存管理机制</h1>
         
 
         <div class="post-meta">
@@ -282,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T20:23:53+08:00">
-                2018-04-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-24T23:39:09+08:00">
+                2018-04-24
               </time>
             
 
@@ -301,8 +308,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/13/Linux-Top命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/04/13/Linux-Top命令/" itemprop="commentsCount"></span>
+                <a href="/2018/04/24/JVM（二）内存管理机制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/04/24/JVM（二）内存管理机制/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -332,7 +339,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,003
+                  1,120
                 </span>
               
 
@@ -369,38 +376,72 @@
       
 
       
-        <h4 id="Top命令"><a href="#Top命令" class="headerlink" title="Top命令"></a>Top命令</h4><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">top - 01:06:48 up  1:22,  1 user,  load average: 0.06, 0.60, 0.48</span><br><span class="line">Tasks:  29 total,   1 running,  28 sleeping,   0 stopped,   0 zombie</span><br><span class="line">Cpu(s):  0.3% us,  1.0% sy,  0.0% ni, 98.7% id,  0.0% wa,  0.0% hi,  0.0% si</span><br><span class="line">Mem:    191272k total,   173656k used,    17616k free,    22052k buffers</span><br><span class="line">Swap:   192772k total,        0k used,   192772k free,   123988k cached</span><br><span class="line"></span><br><span class="line">PID     USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND</span><br><span class="line">213     root      16   0  7976 2456 1980 S  0.7  1.3   0:11.03 sshd</span><br><span class="line">43      root      16   0  2128  980  796 R  0.7  0.5   0:02.72 top</span><br><span class="line">52      root      16   0  1992  632  544 S  0.0  0.3   0:00.90 init</span><br><span class="line">12343   root      34  19     0    0    0 S  0.0  0.0   0:00.00 ksoftirqd/0</span><br><span class="line">2122    root      RT   0     0    0    0 S  0.0  0.0   0:00.00 watchdog/0</span><br></pre></td></tr></table></figure>
-<p>前五行表示系统整体统计信息</p>
-<ol>
-<li><p>第一行显示：系统当前时间 系统运行时间  当前登录用户 系统负载</p>
+        <h4 id="JVM内存结构"><a href="#JVM内存结构" class="headerlink" title="JVM内存结构"></a>JVM内存结构</h4><p><img src="/2018/04/24/JVM（二）内存管理机制/jvmmemory.png" alt=""></p>
+<h6 id="线程共享区域"><a href="#线程共享区域" class="headerlink" title="线程共享区域"></a>线程共享区域</h6><ol>
+<li><p>方法区(Method Area)</p>
 <blockquote>
-<p>系统负载：(<a href="http://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html</a>)</p>
-<blockquote>
-<p>系统负载表示计算机CPU干活的能力，计算机想象成大桥，CPU想象成车道，进程相当于车，一个CPU表示只有一个车道，负载表示车在车道上的运行情况，如果<br>没有车，负载为0，一大半车，负载为0.5，全是车，负载为1，但大桥还是可以畅通的，但如果是负载1.7，表示不仅车道的车满了，而且后续等待的车是桥面的0.7倍<br>当系统负载大于1，后面的车就要等待。所以注意负载最好小于0.7。<br>如果是多个CPU，表示桥有多个车道，可以容纳更多的车，负载也可以很大，比如2个CPU，意味着负载为2.0也没关系</p>
+<ul>
+<li>各个线程共享的内存区域，用来存储已被虚拟机加载的类信息、常量、静态变量、即时编辑器编译后的代码</li>
+<li>这块区域的回收主要针对常量池的回收和类型的卸载，（String.intern()会影响常量池）</li>
+<li>当方法区无法满足内存分配就会报出OutOfMemeoryError</li>
+<li>JDK1.7中已经将常量池移出了方法区，移到了堆上</li>
+<li>常量池<blockquote>
+<p>用来存放编译期生成的字面量和符号引用 </p>
 </blockquote>
+</li>
+<li>设置参数<strong>-XX：PermSize Java方法区初始内存</strong>；<strong>-XX：MaxPermSize Java方法区最大内存</strong></li>
+</ul>
 </blockquote>
 </li>
-<li><p>进程信息：进程总数    正在运行进程数 睡眠进程数   停止进程数   僵死进程数</p>
-</li>
-<li><p>Cpu信息：us 用户空间占CPU百分比，sy  内核空间占CPU百分比，ni 用户进程空间内改变过优先级的进程占用CPU百分比，id 空闲CPU百分比，wa 等待输入输出CPU时间百分比，hi 硬件中断百分比，si 软中断百分比，st 虚拟机占用百分比</p>
-</li>
-<li><p>物理内存信息：total 物理内存总量，used 使用的物理内存总量，free 空闲内存总量，buffers 用作内核缓存的内存量</p>
-</li>
-<li><p>虚拟交换内存信息：total 交换区总量，used 使用交换区量，free 空闲交换区量，cached 缓冲的交换区总量</p>
-</li>
-<li><p>进程信息：</p>
+<li><p>堆</p>
 <blockquote>
-<p>PID进程id，USER运行用户，PR优先级，NI任务nice值，VIRT虚拟内存用量（=SWAP+RES），RES物理内存量，SHR共享内存，S进程状态，%CPU百分比，%MEM物理内存百分比</p>
+<ul>
+<li>所有线程共享，用来存放所有的对象实例和数组，Java虚拟机管理的最大也是最需要我们关心的一块</li>
+<li>如果堆没有内存用来分配对象实例，抛出OutofMemoryError异常</li>
+<li>设置参数<strong>-Xms Java堆初始内存</strong>；<strong>-Xmx Java堆最大内存</strong></li>
+</ul>
 </blockquote>
 </li>
 </ol>
-<h5 id="cached和buffers"><a href="#cached和buffers" class="headerlink" title="cached和buffers"></a>cached和buffers</h5><p>Mem的buffers：缓冲区，存储速度不同步的设备之间传输的数据区域，是根据磁盘读写设计的，减少磁盘碎片和硬盘读取。<br>Swap的cached：高速缓存，用于CPU和内存之间的缓冲区域<br>简而言之：buffer是IO缓存，用于内存和硬盘缓冲；cached是高速缓存，用于CPU和内存之间的缓冲</p>
-<h5 id="对内存进行分析"><a href="#对内存进行分析" class="headerlink" title="对内存进行分析"></a>对内存进行分析</h5><p>从上面Mem看的话，似乎free剩余只有17616k，已经有一大半被使用了，实际上对于Linux来说，内存是尽量使用的，尽可能的利用cached和buffer提高性能，但如果程序需要更多的内存，系统OS会把cached归还<br>而TOP命令反应系统OS的使用情况，对于cached和buffer它也是认为被使用，所以free是很少的</p>
-<p>如果想要更准确的，可以使用 free 命令</p>
-<h4 id="free命令"><a href="#free命令" class="headerlink" title="free命令"></a>free命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@scs-2 tmp]# free</span><br><span class="line">             total       used       free     shared    buffers     cached</span><br><span class="line">Mem:       3266180    3250004      16176          0     110652    2668236</span><br><span class="line">-/+ buffers/cache:     471116    2795064</span><br><span class="line">Swap:      2048276      80160    1968116</span><br></pre></td></tr></table></figure>
-<p>total：总计，used：已使用，free空闲，shared共享，buffersIO缓冲，cached高速缓冲<br>Mem表示从操作系统角度：</p>
-<p>计算内存时：free命令是Men的free + buffers + cached<br>            top命令也是 free + buffers + cached</p>
+<h6 id="线程私有"><a href="#线程私有" class="headerlink" title="线程私有"></a>线程私有</h6><ol>
+<li><p>程序计数器(Program Counter Register)</p>
+<blockquote>
+<ul>
+<li>当前线程所执行的字节码的行号指示器，一块较小的内存区域，字节码解释器就是通过改变这个计数器的值来选取下一条需要执行的字节码指令  </li>
+<li>每个线程独有一个程序计数器，线程私有</li>
+<li>如果是Java方法，计数器记录正在执行的字节码指令地址；如果是Native方法，计数器为空undefined<br>唯一没有在规范中指定任何outOfMemoryError的区域</li>
+</ul>
+</blockquote>
+</li>
+<li><p>虚拟机栈</p>
+<blockquote>
+<ul>
+<li>线程私有，生命周期和线程相同。虚拟机栈描述的是Java方法执行的内存模型：每个方法执行的同时都会创建一个栈帧（Stack Frame）用来存储局部变量表、操作数栈、动态连接、方法入口等信息，每个方法从调用到结束代表一个栈帧的入栈和出栈</li>
+<li>局部变量表存放编译期可知的各种基本类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型）和returnAddress类型</li>
+<li>规定了两种异常：如果线程请求栈深度大于虚拟机所允许的深度，抛出StackOverFlowError；如果虚拟机栈可以动态扩展，如果无法申请到足够的内存，抛出OutOfMemoryError</li>
+<li>设置参数<strong>-Xss:栈空间大小</strong></li>
+</ul>
+</blockquote>
+</li>
+<li><p>本地方法栈</p>
+<blockquote>
+<p>和虚拟机栈类似，只不过虚拟机栈执行Java方法服务，本地方法栈执行虚拟机用到的Native方法服务<br>同样是StackOverflowError和OutofMemoryError</p>
+</blockquote>
+</li>
+</ol>
+<h6 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h6><blockquote>
+<p>直接内存并不是虚拟机运行时数据区的一部分，但这部分内存也被频繁使用，可能出现OutofMemoryError<br>Java的NIO类，引入给予通道（channel）和缓冲区（buffer）的IO方式，可以使用Native方法直接申请堆外内存，通过存储在Java堆上的DirectByteBuffer对象作为这块内存的引用，避免Java堆和Native堆的复制，提高性能<br>但也是受限制物理内存，内存不足抛出OutOfMemoryError<br><img src="/2018/04/24/JVM（二）内存管理机制/directmemory.png" alt=""></p>
+</blockquote>
+<h4 id="对象的创建和布局"><a href="#对象的创建和布局" class="headerlink" title="对象的创建和布局"></a>对象的创建和布局</h4><p>对象创建过程</p>
+<ol>
+<li>当虚拟机遇到一条new指令时，会先检查这个指令的参数是否能在常量池定位到一个类的符号引用，并且检查这个类是否被加载、解析和初始化过，如果没有就执行相应的类加载过程。</li>
+<li>为对象分配内存，将内存空间初始化为零值，然后对对象头进行设置，接着执行’&lt;’init’&gt;’方法进行初始化，真正可用的对象才算完成<br>对象的访问定位</li>
+<li>通过句柄<br><img src="/2018/04/24/JVM（二）内存管理机制/handles.png" alt=""></li>
+<li>通过指针<br><img src="/2018/04/24/JVM（二）内存管理机制/pointer.png" alt=""></li>
+</ol>
+<p>通过句柄是存储句柄地址，句柄包含对象实例数据和类型数据具体地址两个指针，好处在于对象移动时只需要修改数据指针即可；<br>通过指针是reference直接存储对象地址，其中对象中包含类型数据，好处在于速度更快，只需要一次查找</p>
+<h4 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h4><p><img src="/2018/04/24/JVM（二）内存管理机制/jvmmodel.jpg" alt=""><br>上图是JVM整个内存分配图，我们来分析堆内存这部分<br>Java堆通常分为新生代YoungGeneration和老年代OldGeneration，且新生代分为一个eden区、两个survivor区，这样的分配策略是为了方便后续内存回收策略</p>
+<p>整个内存配置可以通过JVM参数进行设置<br><img src="/2018/04/24/JVM（二）内存管理机制/jvmconfig.png" alt=""></p>
 
       
     </div>
@@ -420,7 +461,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2018/04/13/Linux-Top命令/" title="Linux Top命令">http://yoursite.com/2018/04/13/Linux-Top命令/</a>
+    <a href="http://yoursite.com/2018/04/24/JVM（二）内存管理机制/" title="JVM（二）内存管理机制">http://yoursite.com/2018/04/24/JVM（二）内存管理机制/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -435,7 +476,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
           
         </div>
       
@@ -448,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/09/SQL基础/" rel="next" title="SQL基础">
-                <i class="fa fa-chevron-left"></i> SQL基础
+              <a href="/2018/04/17/JVM（四）内存模型/" rel="next" title="JVM（四）内存模型">
+                <i class="fa fa-chevron-left"></i> JVM（四）内存模型
               </a>
             
           </div>
@@ -458,8 +499,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/17/JVM（四）内存模型/" rel="prev" title="JVM（四）内存模型">
-                JVM（四）内存模型 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/24/JVM（三）内存分配和垃圾回收/" rel="prev" title="JVM（三）内存分配和垃圾回收">
+                JVM（三）内存分配和垃圾回收 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -619,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Top命令"><span class="nav-number">1.</span> <span class="nav-text">Top命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cached和buffers"><span class="nav-number">1.1.</span> <span class="nav-text">cached和buffers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对内存进行分析"><span class="nav-number">1.2.</span> <span class="nav-text">对内存进行分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#free命令"><span class="nav-number">2.</span> <span class="nav-text">free命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM内存结构"><span class="nav-number">1.</span> <span class="nav-text">JVM内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#线程共享区域"><span class="nav-number">1.0.1.</span> <span class="nav-text">线程共享区域</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#线程私有"><span class="nav-number">1.0.2.</span> <span class="nav-text">线程私有</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#直接内存"><span class="nav-number">1.0.3.</span> <span class="nav-text">直接内存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象的创建和布局"><span class="nav-number">2.</span> <span class="nav-text">对象的创建和布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存分配"><span class="nav-number">3.</span> <span class="nav-text">内存分配</span></a></li></ol></div>
             
 
           </div>
